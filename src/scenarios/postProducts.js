@@ -9,7 +9,7 @@
 // Test Steps:
 //   1. สุ่มเลือก product จาก testdata.json ทุก iteration (realistic payload variety)
 //   2. ส่ง POST request พร้อม x-api-key header + JSON body
-//   3. Assert HTTP status = 201 (Created)
+//   3. Assert HTTP status = 200 (OK)
 //   4. Assert response body มี field "id" (server assign ให้)
 //   5. Assert response body มี field "createdAt"
 //   6. Assert "name" ใน response ตรงกับที่ส่งไป
