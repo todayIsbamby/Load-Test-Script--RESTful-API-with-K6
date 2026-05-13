@@ -1,0 +1,93 @@
+[
+  {
+    "name": "Apple MacBook Pro 16",
+    "data": {
+      "year": 2023,
+      "price": 2499.99,
+      "CPU model": "Apple M3 Pro",
+      "Hard disk size": "512 GB"
+    }
+  },
+  {
+    "name": "Samsung Galaxy S24 Ultra",
+    "data": {
+      "color": "Titanium Black",
+      "capacity": "256 GB",
+      "price": 1299.99,
+      "RAM": "12 GB"
+    }
+  },
+  {
+    "name": "Sony WH-1000XM5",
+    "data": {
+      "color": "Midnight Black",
+      "type": "Over-ear",
+      "noise_cancelling": true,
+      "price": 349.99
+    }
+  },
+  {
+    "name": "Apple iPad Pro 12.9",
+    "data": {
+      "generation": "6th",
+      "capacity": "256 GB",
+      "color": "Space Grey",
+      "price": 1099.99
+    }
+  },
+  {
+    "name": "Dell XPS 15",
+    "data": {
+      "year": 2023,
+      "price": 1899.99,
+      "CPU model": "Intel Core i7-13700H",
+      "RAM": "32 GB",
+      "Hard disk size": "1 TB"
+    }
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "data": {
+      "color": "Obsidian",
+      "capacity": "128 GB",
+      "price": 999.99,
+      "RAM": "12 GB"
+    }
+  },
+  {
+    "name": "Apple Watch Ultra 2",
+    "data": {
+      "case_size": "49mm",
+      "material": "Titanium",
+      "price": 799.99,
+      "color": "Natural"
+    }
+  },
+  {
+    "name": "Logitech MX Master 3S",
+    "data": {
+      "color": "Graphite",
+      "connectivity": "Bluetooth + USB",
+      "price": 99.99,
+      "DPI": 8000
+    }
+  },
+  {
+    "name": "LG UltraWide 34",
+    "data": {
+      "resolution": "3440x1440",
+      "panel": "IPS",
+      "refresh_rate": "144Hz",
+      "price": 699.99
+    }
+  },
+  {
+    "name": "Anker PowerBank 26800",
+    "data": {
+      "capacity": "26800 mAh",
+      "ports": 3,
+      "fast_charge": true,
+      "price": 59.99
+    }
+  }
+]

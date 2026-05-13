@@ -1,0 +1,12 @@
+{
+  "name": "load_test_script_assignment",
+  "version": "1.0.0",
+  "description": "- Install k6: `winget install k6` (Windows) or `brew install k6` (Mac)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
