@@ -1,5 +1,3 @@
-// scenarios/postProducts.js
-//
 // === TEST CASE: POST /collections/products/objects ===
 //
 // Objective:
@@ -11,8 +9,7 @@
 //   2. ส่ง POST request พร้อม x-api-key header + JSON body
 //   3. Assert HTTP status = 200 (OK)
 //   4. Assert response body มี field "id" (server assign ให้)
-//   5. Assert response body มี field "createdAt"
-//   6. Assert "name" ใน response ตรงกับที่ส่งไป
+//   5. Assert "name" ใน response ตรงกับที่ส่งไป
 //
 // Assumption:
 //   - ใช้ข้อมูลหลากหลายจาก testdata.json เพื่อ simulate user จริงที่ส่ง product ต่างกัน
@@ -25,25 +22,18 @@ import { Trend } from "k6/metrics";
 import { BASE_URL, COLLECTION_NAME } from "../config/env.js";
 import { getHeaders, logResponse } from "../helper/utils.js";
 
-// โหลด test data ครั้งเดียวตอน init (ก่อน VU เริ่ม) — K6 best practice
-const testData = JSON.parse(open("../data/testdata.json"));
 
-// Custom metric สำหรับ track duration ของ endpoint นี้โดยเฉพาะ
-export const postProductsDuration = new Trend("post_products_duration", true);
+const testData = JSON.parse(open("../data/testdata.json"));// โหลด test data ครั้งเดียวตอน init (ก่อน VU เริ่ม) 
+
+export const postProductsDuration = new Trend("post_products_duration", true);// Custom metric สำหรับ track duration ของ endpoint นี้โดยเฉพาะ
 
 export function postProductsScenario() {
   const url = `${BASE_URL}/collections/${COLLECTION_NAME}/objects`;
-
-  // สุ่มเลือก product จาก testdata.json ทุก iteration
-  const randomIndex = Math.floor(Math.random() * testData.length);
+  const randomIndex = Math.floor(Math.random() * testData.length); // สุ่มเลือก product จาก testdata.json ทุก iteration
   const payload = JSON.stringify(testData[randomIndex]);
-
   const res = http.post(url, payload, { headers: getHeaders() });
-
-  // เก็บ duration ลง custom metric
-  postProductsDuration.add(res.timings.duration);
-
-  // Log สำหรับ debug
+  postProductsDuration.add(res.timings.duration);// เก็บ duration ลง custom metric
+ 
   logResponse("POST /collections/products/objects", res);
 
   // === Assertions ===
@@ -53,6 +43,5 @@ export function postProductsScenario() {
     "name matches payload": (r) => r.json("name") === testData[randomIndex].name,
   });
 
-  // Think time: 1-2 วิ simulate เวลา user กรอก form ก่อน submit ครั้งถัดไป
-  sleep(Math.random() * 1 + 1);
+  sleep(Math.random() * 1 + 1);// Think time: 1-2 วิ simulate เวลา user กรอก form ก่อน submit ครั้งถัดไป
 }

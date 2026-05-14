@@ -1,5 +1,3 @@
-// config/options.js
-//
 // === ASSUMPTION ===
 // สมมติว่า API นี้เป็น product catalog ของ e-commerce
 // โดยมี traffic pattern แบบ gradual ramp-up เหมือน production จริง
@@ -13,14 +11,18 @@
 // - http_req_duration p(95) < 2000ms  → 95% ของ request ต้องเร็วกว่า 2 วิ
 // - http_req_failed < 1%              → error rate ห้ามเกิน 1%
 
+
+
+
+
 export const options = {
   stages: [
-    { duration: "20s", target: 2 },
-    { duration: "30s", target: 2 },
-    { duration: "10s", target: 0 },
+    { duration: "20s", target: 2 }, //ค่อยๆ เพิ่มจาก 0 → 2 VUs (ramp-up)
+    { duration: "30s", target: 2 }, //คงที่ที่ 2 VUs (steady state)
+    { duration: "10s", target: 0 }, //ค่อยๆ ลดจาก 2 → 0 VUs (ramp-down)
   ],
   thresholds: {
-    http_req_duration: ["p(95)<2000"],
-    http_req_failed: ["rate<0.05"],
+    http_req_duration: ["p(95)<2000"], //95% ของ request ต้องเร็วกว่า 2 วิ
+    http_req_failed: ["rate<0.05"], // error rate ห้ามเกิน 5%
   },
 };
